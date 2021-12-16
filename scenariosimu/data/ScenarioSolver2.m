@@ -1,0 +1,10 @@
+clear;
+clc;
+load ScenarioCenter.mat;
+[Dfull,Iffull] = trjinfo(trjtruetunning.track,'no');
+alpha = 1/mean(Iffull);
+D = sqrt(mean(Dfull.^2)/2);
+thint = 200;
+corenum = 6;
+jobname = 'runScenario2';
+[ trjans, trjansdetail ] = runSparseTrackingTunning( moviethis, movietunning, trjtruetunning, 1, 5, 0, D, alpha, thint, corenum, jobname );
